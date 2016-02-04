@@ -1,4 +1,4 @@
 # mock-service
 just a simple web app to test herd's deployment functionality
 
-update 6
+update 7
