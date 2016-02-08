@@ -8,6 +8,7 @@ def env_handler():
     return dict(os.environ)
 
 def cfg_handler(key):
+    print("looking for key: {}".format(key))
     return {key: cfg(key)}
 
 
