@@ -25,7 +25,8 @@ dependencies:
     # build the image
     - echo $gcloud_key | base64 --decode > gcloud.json; gcloud auth activate-service-account $gcloud_email --key-file gcloud.json; ssh-keygen -f ~/.ssh/google_compute_engine -N ""
     - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
-    - gcloud docker build -t us.gcr.io/lexical-cider-93918/$herd_service_name:$herd_build_tag .
+    - gcloud docker -a
+    - docker build -t us.gcr.io/lexical-cider-93918/$herd_service_name:$herd_build_tag .
 
     # cache the image to speed up the next build
     - mkdir -p ~/docker; docker save us.gcr.io/lexical-cider-93918/$herd_service_name:$herd_build_tag > ~/docker/image.tar
